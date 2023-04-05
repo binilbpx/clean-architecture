@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Sql", "Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Infrastructure", "CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj", "{52FB6C8E-E533-4FCC-803E-AFA78068CF7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.API", "CleanArchitecture.API\CleanArchitecture.API.csproj", "{FB29B1FB-1659-44DD-9C91-FEE45947DF9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{52FB6C8E-E533-4FCC-803E-AFA78068CF7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52FB6C8E-E533-4FCC-803E-AFA78068CF7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52FB6C8E-E533-4FCC-803E-AFA78068CF7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB29B1FB-1659-44DD-9C91-FEE45947DF9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB29B1FB-1659-44DD-9C91-FEE45947DF9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB29B1FB-1659-44DD-9C91-FEE45947DF9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB29B1FB-1659-44DD-9C91-FEE45947DF9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
