@@ -11,7 +11,7 @@ namespace CleanArchitecture.Infrastructure
 {
     public static class ServiceCollectionExtension
     {
-        public static void RegisterServices(this IServiceCollection services)
+        public static void RegisterRepositoryServices(this IServiceCollection services)
         {
             services.AddTransient<IContactRepository, ContactRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();

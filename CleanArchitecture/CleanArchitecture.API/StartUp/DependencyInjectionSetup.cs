@@ -39,11 +39,7 @@ namespace CleanArchitecture.API.StartUp
                 });
             });
 
-            services.AddScoped<IValidator<Contact>, ContactValidator>();
-
-            services.AddScoped<IContactRepository, ContactRepository>();
-
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IValidator<Contact>, ContactValidator>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
 

@@ -1,20 +1,14 @@
 using CleanArchitecture.API.StartUp;
-using CleanArchitecture.API.Validation;
-using CleanArchitecture.Application.Interfaces;
-using CleanArchitecture.Core.Entites;
-using CleanArchitecture.Infrastructure.Repository;
-using FluentValidation;
-using FluentValidation.Results;
 using log4net.Config;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.OpenApi.Models;
+using CleanArchitecture.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 XmlConfigurator.Configure(new FileInfo("log4net.config"));
 
 builder.Services.RegisterServices();
+
+builder.Services.RegisterRepositoryServices();
 
 var app = builder.Build();
 
