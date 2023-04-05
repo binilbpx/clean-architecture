@@ -9,7 +9,7 @@ namespace CleanArchitecture.API.StartUp
     {
         public static WebApplication MapContactEndpoints(this WebApplication app)
         {
-            app.MapPost("contact", async (IValidator<Contact> validator, Contact contact, IContactRepository _contactRepository) =>
+            app.MapPost("contact", async (IValidator<Contact> validator, Contact contact, IUnitOfWork unitOfWork) =>
             {
                 ValidationResult validationResult = await validator.ValidateAsync(contact);
 
@@ -18,7 +18,7 @@ namespace CleanArchitecture.API.StartUp
                     return Results.ValidationProblem(validationResult.ToDictionary());
                 }
 
-                await _contactRepository.AddAsync(contact);
+                await unitOfWork.Contacts.AddAsync(contact);
 
                 return Results.Ok(contact);
             })

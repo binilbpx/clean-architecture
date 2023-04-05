@@ -43,6 +43,8 @@ namespace CleanArchitecture.API.StartUp
 
             services.AddScoped<IContactRepository, ContactRepository>();
 
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
 
             services.AddAuthorization(options =>
