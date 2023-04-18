@@ -1,5 +1,5 @@
-USE [YourDBName]
-GO
+--USE [YourDBName]
+--GO
 
 /****** Object:  Table [dbo].[Contact] ******/
 SET ANSI_NULLS ON

@@ -19,4 +19,13 @@
     <ProjectReference Include="..\CleanArchitecture.Sql\CleanArchitecture.Sql.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="DB\sample.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DB\sample_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

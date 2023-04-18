@@ -17,7 +17,7 @@ namespace CleanArchitecture.Infrastructure.Repository
     {
         #region "private"
 
-        private readonly IConfiguration configuration;
+        private readonly IDbConnection connection;
 
         #endregion
 
@@ -25,7 +25,7 @@ namespace CleanArchitecture.Infrastructure.Repository
 
         public ContactRepository(IConfiguration configuration)
         {
-            this.configuration = configuration;
+            connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
         }
 
         #endregion
@@ -34,7 +34,7 @@ namespace CleanArchitecture.Infrastructure.Repository
 
         public async Task<IReadOnlyList<Contact>> GetAllAsync()
         {
-            using (IDbConnection connection = new SqlConnection(configuration.GetConnectionString("DBConnection")))
+            using (connection)
             {
                 connection.Open();
                 var result = await connection.QueryAsync<Contact>(ContactQueries.AllContact);
@@ -44,7 +44,7 @@ namespace CleanArchitecture.Infrastructure.Repository
 
         public async Task<Contact> GetByIdAsync(long id)
         {
-            using (IDbConnection connection = new SqlConnection(configuration.GetConnectionString("DBConnection")))
+            using (connection)
             {
                 connection.Open();
                 var result = await connection.QuerySingleOrDefaultAsync<Contact>(ContactQueries.ContactById, new { ContactId = id });
@@ -54,7 +54,7 @@ namespace CleanArchitecture.Infrastructure.Repository
 
         public async Task<string> AddAsync(Contact entity)
         {
-            using (IDbConnection connection = new SqlConnection(configuration.GetConnectionString("DBConnection")))
+            using (connection)
             {
                 connection.Open();
                 var result = await connection.ExecuteAsync(ContactQueries.AddContact, entity);
@@ -64,7 +64,7 @@ namespace CleanArchitecture.Infrastructure.Repository
 
         public async Task<string> UpdateAsync(Contact entity)
         {
-            using (IDbConnection connection = new SqlConnection(configuration.GetConnectionString("DBConnection")))
+            using (connection)
             {
                 connection.Open();
                 var result = await connection.ExecuteAsync(ContactQueries.UpdateContact, entity);
@@ -74,7 +74,7 @@ namespace CleanArchitecture.Infrastructure.Repository
 
         public async Task<string> DeleteAsync(long id)
         {
-            using (IDbConnection connection = new SqlConnection(configuration.GetConnectionString("DBConnection")))
+            using (connection)
             {
                 connection.Open();
                 var result = await connection.ExecuteAsync(ContactQueries.DeleteContact, new { ContactId = id });
