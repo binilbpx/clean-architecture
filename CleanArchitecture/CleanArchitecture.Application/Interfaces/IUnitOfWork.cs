@@ -3,5 +3,6 @@
     public interface IUnitOfWork
     {
         IContactRepository Contacts { get; }
+        ISchoolRepository Schools { get; }
     }
 }
