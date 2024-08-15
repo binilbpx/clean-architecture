@@ -22,4 +22,6 @@ app.UseHttpsRedirection();
 
 app.MapContactEndpoints();
 
+app.MapSchoolEndpoints();
+
 app.Run();
