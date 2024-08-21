@@ -1,4 +1,8 @@
 ﻿using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Core.Entites;
+using CleanArchitecture.Infrastructure.Repository;
+using System.Text.Json;
+using System.Xml.Linq;
 
 namespace CleanArchitecture.API.StartUp
 {
@@ -6,13 +10,16 @@ namespace CleanArchitecture.API.StartUp
     {
         public static WebApplication MapSchoolEndpoints(this WebApplication app)
         {
-            app.MapGet("schools", async (IUnitOfWork unitOfWork) =>
+            app.MapGet("schools", async (IUnitOfWork unitOfWork, HttpContext context) =>
             {
                 var schools = await unitOfWork.Schools.GetAllAsync();
 
-                return Results.Ok(schools);
+                var filteredSchools = ApplyFilters(context, schools);
+
+                return Results.Ok(filteredSchools);
             })
-            .AllowAnonymous();
+            .AllowAnonymous()
+            .RequireCors("CorsPolicy");
 
             app.MapGet("tenants", async (IUnitOfWork unitOfWork) =>
             {
@@ -22,7 +29,7 @@ namespace CleanArchitecture.API.StartUp
 
                 return Results.Ok(tenants);
             })
-            .AllowAnonymous();
+            .RequireCors("CorsPolicy");
 
             app.MapGet("schools/{id}", async (long id, IUnitOfWork unitOfWork) =>
             {
@@ -32,7 +39,7 @@ namespace CleanArchitecture.API.StartUp
             })
             .AllowAnonymous();
 
-            app.MapGet("/schools/search", async (string? name, bool? isActive, int? tenantId, IUnitOfWork unitOfWork) =>
+            app.MapGet("/schools/filter", async (string? name, IUnitOfWork unitOfWork) =>
             {
                 var schoolsList = await unitOfWork.Schools.GetAllAsync();
 
@@ -41,17 +48,69 @@ namespace CleanArchitecture.API.StartUp
                 if (!string.IsNullOrEmpty(name))
                     schools = schools.Where(s => s.name.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
 
-                if (isActive.HasValue)
-                    schools = schools.Where(s => s.isActive == isActive.Value).ToList();
-
-                if (tenantId.HasValue)
-                    schools = schools.Where(s => s.tenantId == tenantId.Value).ToList();
-
                 return Results.Ok(schools.ToList());
             })
             .AllowAnonymous();
 
             return app;
+        }
+
+        public static IEnumerable<School> ApplyFilters(HttpContext context, IReadOnlyList<School> schools)
+        {
+            var rangeString = context.Request.Query["range"].ToString();
+            var filterString = context.Request.Query["filter"].ToString();
+
+            // Parse the range parameter
+            var rangeArray = rangeString.Trim('[', ']').Split(',')
+                                         .Select(int.Parse)
+                                         .ToArray();
+
+            // Apply filtering based on the filter parameter
+            if (!string.IsNullOrEmpty(filterString))
+            {
+                // Deserialize the filter JSON to extract filter values
+                var filters = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(filterString);
+
+                if (filters != null)
+                {
+                    // Apply the name filter
+                    if (filters.TryGetValue("name", out var nameFilter) && nameFilter.ValueKind == JsonValueKind.String)
+                    {
+                        var nameFilterValue = nameFilter.GetString();
+                        if (!string.IsNullOrEmpty(nameFilterValue))
+                        {
+                            schools = schools.Where(s => s.name.Contains(nameFilterValue, StringComparison.OrdinalIgnoreCase)).ToList();
+                        }
+                    }
+
+                    // Apply the id filter
+                    if (filters.TryGetValue("id", out var idFilter) && idFilter.ValueKind == JsonValueKind.String)
+                    {
+                        if (long.TryParse(idFilter.GetString(), out var idFilterValue))
+                        {
+                            schools = schools.Where(s => s.id == idFilterValue).ToList();
+                        }
+                    }
+                    // Apply the isActivationAllowed filter
+                    if (filters.TryGetValue("isActivationAllowed", out var isActivationAllowedFilter) && isActivationAllowedFilter.ValueKind == JsonValueKind.True || isActivationAllowedFilter.ValueKind == JsonValueKind.False)
+                    {
+                        var isActivationAllowedFilterValue = isActivationAllowedFilter.GetBoolean();
+                        schools = schools.Where(s => s.isActivationAllowed == isActivationAllowedFilterValue).ToList();
+                    }
+                }
+            }
+
+            // Calculate total count for pagination header
+            var totalSchools = schools.Count();
+
+            // Apply pagination
+            var schoolsList = schools.Skip(rangeArray[0]).Take(rangeArray[1] - rangeArray[0]);
+
+            // Set pagination headers
+            context.Response.Headers.Add("Content-Range", $"schools {rangeArray[0]}-{rangeArray[1]}/{totalSchools}");
+            context.Response.Headers.Add("Access-Control-Expose-Headers", "Content-Range");
+
+            return schoolsList;
         }
     }
 }

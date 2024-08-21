@@ -12,7 +12,7 @@ builder.Services.RegisterRepositoryServices();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("CorsPolicy", policy =>
     {
         policy.AllowAnyOrigin()
               .AllowAnyMethod()
@@ -28,12 +28,12 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.UseCors("AllowAll");
-
 app.UseHttpsRedirection();
 
 app.MapContactEndpoints();
 
 app.MapSchoolEndpoints();
+
+app.UseCors("CorsPolicy");
 
 app.Run();
