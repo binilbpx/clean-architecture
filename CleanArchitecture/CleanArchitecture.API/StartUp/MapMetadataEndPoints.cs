@@ -88,13 +88,13 @@ namespace CleanArchitecture.API.StartUp
             var totalMetadatas = metdatas.Count();
 
             // Apply pagination
-            var schoolsList = metdatas.Skip(rangeArray[0]).Take(rangeArray[1] - rangeArray[0]);
+            var metadataList = metdatas.Skip(rangeArray[0]).Take(rangeArray[1] - rangeArray[0]);
 
             // Set pagination headers
             context.Response.Headers.Add("Content-Range", $"metadatas {rangeArray[0]}-{rangeArray[1]}/{totalMetadatas}");
             context.Response.Headers.Add("Access-Control-Expose-Headers", "Content-Range");
 
-            return schoolsList;
+            return metadataList;
         }
     }
 }
