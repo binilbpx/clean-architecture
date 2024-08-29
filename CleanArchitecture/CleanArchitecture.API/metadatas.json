@@ -1,0 +1,474 @@
+[
+  {
+    "versionId": 174,
+    "isCurrent": true,
+    "isDeleted": false,
+    "actionId": 242581,
+    "creationTimestamp": "2024-03-28 11:20:10",
+    "tenantId": 1,
+    "tenant": {
+      "id": 1,
+      "name": "EduHint",
+      "isActive": true,
+      "isAdminPageAllowed": true
+    },
+    "methodNodeIds": [ 13232119987 ],
+    "methodNodes": [
+      {
+        "id": 13232119987,
+        "title": "PERSPECTIEF vmbo E&O",
+        "isAdminMethodPageAllowed": true
+      }
+    ],
+    "isForAllMethods": false,
+    "isForAllMethodsOfTenant": false,
+    "methodsFromConfigForResourceCategory": [],
+    "isPageAllowed": true,
+    "isEditAllowed": true,
+    "isDeleteAllowed": true,
+    "isExportAllowed": true,
+    "isAllowedToPublishToProduction": true,
+    "isProductionStatusCheckAllowed": true,
+    "id": 1394688794,
+    "name": "Opdracht type",
+    "optionId": 11099629234,
+    "option": {
+      "sequence": 0,
+      "iconResourceId": 13560596913,
+      "icon": {
+        "description": "",
+        "id": 13560596913,
+        "title": "Servicesales",
+        "type": "Image",
+        "tags": "",
+        "originalFileName": "Servicesales.svg",
+        "extension": "svg",
+        "isDownloadable": true,
+        "hasThumb": false,
+        "filePath": "https://cms.eduhint.nl/content/resources/13560596913.svg",
+        "tenantId": 1,
+        "tenant": {
+          "id": 1,
+          "name": "EduHint",
+          "isActive": true,
+          "isAdminPageAllowed": true
+        },
+        "userActor": {
+          "id": 18,
+          "isActive": true,
+          "fullName": "Andre Bekema",
+          "roles": [ "Administrator" ],
+          "hasValidPrimaryEmailAddress": true,
+          "isSlaveAccount": false,
+          "isMasterAccount": false,
+          "isProfilePageAllowed": true,
+          "publisherIds": []
+        },
+        "userCreator": {
+          "id": 18,
+          "isActive": true,
+          "fullName": "Andre Bekema",
+          "roles": [ "Administrator" ],
+          "hasValidPrimaryEmailAddress": true,
+          "isSlaveAccount": false,
+          "isMasterAccount": false,
+          "isProfilePageAllowed": true,
+          "publisherIds": []
+        },
+        "timestampCreated": "2024-03-28 11:24:45",
+        "timestampAction": "2024-03-28 11:24:45"
+      },
+      "children": [
+        {
+          "parentId": 11099629234,
+          "sequence": 0,
+          "iconResourceId": 13009416388,
+          "icon": {
+            "description": "",
+            "id": 13009416388,
+            "title": "service_and_sales",
+            "type": "Image",
+            "tags": "",
+            "originalFileName": "service_and_sales.svg",
+            "extension": "svg",
+            "isDownloadable": false,
+            "hasThumb": false,
+            "filePath": "https://cms.eduhint.nl/content/resources/13009416388.svg",
+            "tenantId": 1,
+            "tenant": {
+              "id": 1,
+              "name": "EduHint",
+              "isActive": true,
+              "isAdminPageAllowed": true
+            },
+            "userActor": {
+              "id": 18,
+              "isActive": true,
+              "fullName": "Andre Bekema",
+              "roles": [ "Administrator" ],
+              "hasValidPrimaryEmailAddress": true,
+              "isSlaveAccount": false,
+              "isMasterAccount": false,
+              "isProfilePageAllowed": true,
+              "publisherIds": []
+            },
+            "userCreator": {
+              "id": 18,
+              "isActive": true,
+              "fullName": "Andre Bekema",
+              "roles": [ "Administrator" ],
+              "hasValidPrimaryEmailAddress": true,
+              "isSlaveAccount": false,
+              "isMasterAccount": false,
+              "isProfilePageAllowed": true,
+              "publisherIds": []
+            },
+            "timestampCreated": "2024-08-01 11:36:16",
+            "timestampAction": "2024-08-01 11:36:16"
+          },
+          "children": [],
+          "id": 11517447483,
+          "name": "Service en Sales"
+        },
+        {
+          "parentId": 11099629234,
+          "sequence": 1,
+          "iconResourceId": 12743676291,
+          "icon": {
+            "description": "",
+            "id": 12743676291,
+            "title": "officesupport",
+            "type": "Image",
+            "tags": "",
+            "originalFileName": "officesupport.svg",
+            "extension": "svg",
+            "isDownloadable": false,
+            "hasThumb": false,
+            "filePath": "https://cms.eduhint.nl/content/resources/12743676291.svg",
+            "tenantId": 1,
+            "tenant": {
+              "id": 1,
+              "name": "EduHint",
+              "isActive": true,
+              "isAdminPageAllowed": true
+            },
+            "userActor": {
+              "id": 18,
+              "isActive": true,
+              "fullName": "Andre Bekema",
+              "roles": [ "Administrator" ],
+              "hasValidPrimaryEmailAddress": true,
+              "isSlaveAccount": false,
+              "isMasterAccount": false,
+              "isProfilePageAllowed": true,
+              "publisherIds": []
+            },
+            "userCreator": {
+              "id": 18,
+              "isActive": true,
+              "fullName": "Andre Bekema",
+              "roles": [ "Administrator" ],
+              "hasValidPrimaryEmailAddress": true,
+              "isSlaveAccount": false,
+              "isMasterAccount": false,
+              "isProfilePageAllowed": true,
+              "publisherIds": []
+            },
+            "timestampCreated": "2024-08-01 11:36:46",
+            "timestampAction": "2024-08-01 11:36:46"
+          },
+          "children": [],
+          "id": 11697336085,
+          "name": "Office en Support"
+        },
+        {
+          "parentId": 11099629234,
+          "sequence": 2,
+          "iconResourceId": 12459437901,
+          "icon": {
+            "description": "",
+            "id": 12459437901,
+            "title": "retailstyling",
+            "type": "Image",
+            "tags": "",
+            "originalFileName": "retailstyling.svg",
+            "extension": "svg",
+            "isDownloadable": false,
+            "hasThumb": false,
+            "filePath": "https://cms.eduhint.nl/content/resources/12459437901.svg",
+            "tenantId": 1,
+            "tenant": {
+              "id": 1,
+              "name": "EduHint",
+              "isActive": true,
+              "isAdminPageAllowed": true
+            },
+            "userActor": {
+              "id": 18,
+              "isActive": true,
+              "fullName": "Andre Bekema",
+              "roles": [ "Administrator" ],
+              "hasValidPrimaryEmailAddress": true,
+              "isSlaveAccount": false,
+              "isMasterAccount": false,
+              "isProfilePageAllowed": true,
+              "publisherIds": []
+            },
+            "userCreator": {
+              "id": 18,
+              "isActive": true,
+              "fullName": "Andre Bekema",
+              "roles": [ "Administrator" ],
+              "hasValidPrimaryEmailAddress": true,
+              "isSlaveAccount": false,
+              "isMasterAccount": false,
+              "isProfilePageAllowed": true,
+              "publisherIds": []
+            },
+            "timestampCreated": "2024-08-01 11:37:12",
+            "timestampAction": "2024-08-01 11:37:12"
+          },
+          "children": [],
+          "id": 11956184595,
+          "name": "Retail en Styling"
+        },
+        {
+          "parentId": 11099629234,
+          "sequence": 3,
+          "iconResourceId": 12171224071,
+          "icon": {
+            "description": "",
+            "id": 12171224071,
+            "title": "stocksupplies",
+            "type": "Image",
+            "tags": "",
+            "originalFileName": "stocksupplies.svg",
+            "extension": "svg",
+            "isDownloadable": false,
+            "hasThumb": false,
+            "filePath": "https://cms.eduhint.nl/content/resources/12171224071.svg",
+            "tenantId": 1,
+            "tenant": {
+              "id": 1,
+              "name": "EduHint",
+              "isActive": true,
+              "isAdminPageAllowed": true
+            },
+            "userActor": {
+              "id": 18,
+              "isActive": true,
+              "fullName": "Andre Bekema",
+              "roles": [ "Administrator" ],
+              "hasValidPrimaryEmailAddress": true,
+              "isSlaveAccount": false,
+              "isMasterAccount": false,
+              "isProfilePageAllowed": true,
+              "publisherIds": []
+            },
+            "userCreator": {
+              "id": 18,
+              "isActive": true,
+              "fullName": "Andre Bekema",
+              "roles": [ "Administrator" ],
+              "hasValidPrimaryEmailAddress": true,
+              "isSlaveAccount": false,
+              "isMasterAccount": false,
+              "isProfilePageAllowed": true,
+              "publisherIds": []
+            },
+            "timestampCreated": "2024-08-01 11:37:38",
+            "timestampAction": "2024-08-01 11:37:38"
+          },
+          "children": [],
+          "id": 174782968,
+          "name": "Stock en Supplies"
+        }
+      ],
+      "id": 11099629234,
+      "name": "Service en Sales"
+    },
+    "type": "Tree",
+    "isMultipleSelectionAllowed": false,
+    "isResourceCategory": false,
+    "isActive": true,
+    "isAdminMetadataPropertyPageAllowed": false
+  },
+  {
+    "versionId": 172,
+    "isCurrent": true,
+    "isDeleted": false,
+    "actionId": 242565,
+    "creationTimestamp": "2024-08-01 11:26:50",
+    "tenantId": 1,
+    "tenant": {
+      "id": 1,
+      "name": "EduHint",
+      "isActive": true,
+      "isAdminPageAllowed": true
+    },
+    "methodNodeIds": [ 13232119987 ],
+    "methodNodes": [
+      {
+        "id": 13232119987,
+        "title": "PERSPECTIEF vmbo E&O",
+        "isAdminMethodPageAllowed": true
+      }
+    ],
+    "isForAllMethods": false,
+    "isForAllMethodsOfTenant": false,
+    "methodsFromConfigForResourceCategory": [],
+    "isPageAllowed": true,
+    "isEditAllowed": true,
+    "isDeleteAllowed": true,
+    "isExportAllowed": true,
+    "isAllowedToPublishToProduction": true,
+    "isProductionStatusCheckAllowed": true,
+    "id": 11946100874,
+    "name": "Stock en Supplies",
+    "optionId": 12040679508,
+    "option": {
+      "sequence": 0,
+      "iconResourceId": 13347807927,
+      "icon": {
+        "description": "",
+        "id": 13347807927,
+        "title": "Groeneboon",
+        "type": "Image",
+        "tags": "",
+        "originalFileName": "Groeneboon.svg",
+        "extension": "svg",
+        "isDownloadable": false,
+        "hasThumb": false,
+        "filePath": "https://cms.eduhint.nl/content/resources/13347807927.svg",
+        "tenantId": 1,
+        "tenant": {
+          "id": 1,
+          "name": "EduHint",
+          "isActive": true,
+          "isAdminPageAllowed": true
+        },
+        "userActor": {
+          "id": 18,
+          "isActive": true,
+          "fullName": "Andre Bekema",
+          "roles": [ "Administrator" ],
+          "hasValidPrimaryEmailAddress": true,
+          "isSlaveAccount": false,
+          "isMasterAccount": false,
+          "isProfilePageAllowed": true,
+          "publisherIds": []
+        },
+        "userCreator": {
+          "id": 18,
+          "isActive": true,
+          "fullName": "Andre Bekema",
+          "roles": [ "Administrator" ],
+          "hasValidPrimaryEmailAddress": true,
+          "isSlaveAccount": false,
+          "isMasterAccount": false,
+          "isProfilePageAllowed": true,
+          "publisherIds": []
+        },
+        "timestampCreated": "2024-08-01 10:53:03",
+        "timestampAction": "2024-08-01 10:53:03"
+      },
+      "children": [],
+      "id": 12040679508,
+      "name": "Stock en Supplies"
+    },
+    "type": "Bool",
+    "isMultipleSelectionAllowed": false,
+    "isResourceCategory": false,
+    "isActive": false,
+    "isAdminMetadataPropertyPageAllowed": false
+  },
+  {
+    "versionId": 171,
+    "isCurrent": true,
+    "isDeleted": false,
+    "actionId": 242564,
+    "creationTimestamp": "2024-08-01 11:34:38",
+    "tenantId": 1,
+    "tenant": {
+      "id": 1,
+      "name": "EduHint",
+      "isActive": true,
+      "isAdminPageAllowed": true
+    },
+    "methodNodeIds": [ 13232119987 ],
+    "methodNodes": [
+      {
+        "id": 13232119987,
+        "title": "PERSPECTIEF vmbo E&O",
+        "isAdminMethodPageAllowed": true
+      }
+    ],
+    "isForAllMethods": false,
+    "isForAllMethodsOfTenant": false,
+    "methodsFromConfigForResourceCategory": [],
+    "isPageAllowed": true,
+    "isEditAllowed": true,
+    "isDeleteAllowed": true,
+    "isExportAllowed": true,
+    "isAllowedToPublishToProduction": true,
+    "isProductionStatusCheckAllowed": true,
+    "id": 151149935,
+    "name": "Retail en Styling",
+    "optionId": 1152271731,
+    "option": {
+      "sequence": 0,
+      "iconResourceId": 12512339204,
+      "icon": {
+        "description": "",
+        "id": 12512339204,
+        "title": "Tabula",
+        "type": "Image",
+        "tags": "",
+        "originalFileName": "Tabula.svg",
+        "extension": "svg",
+        "isDownloadable": false,
+        "hasThumb": false,
+        "filePath": "https://cms.eduhint.nl/content/resources/12512339204.svg",
+        "tenantId": 1,
+        "tenant": {
+          "id": 1,
+          "name": "EduHint",
+          "isActive": true,
+          "isAdminPageAllowed": true
+        },
+        "userActor": {
+          "id": 18,
+          "isActive": true,
+          "fullName": "Andre Bekema",
+          "roles": [ "Administrator" ],
+          "hasValidPrimaryEmailAddress": true,
+          "isSlaveAccount": false,
+          "isMasterAccount": false,
+          "isProfilePageAllowed": true,
+          "publisherIds": []
+        },
+        "userCreator": {
+          "id": 18,
+          "isActive": true,
+          "fullName": "Andre Bekema",
+          "roles": [ "Administrator" ],
+          "hasValidPrimaryEmailAddress": true,
+          "isSlaveAccount": false,
+          "isMasterAccount": false,
+          "isProfilePageAllowed": true,
+          "publisherIds": []
+        },
+        "timestampCreated": "2024-08-01 10:54:36",
+        "timestampAction": "2024-08-01 10:54:36"
+      },
+      "children": [],
+      "id": 1152271731,
+      "name": "Retail en Styling"
+    },
+    "type": "Bool",
+    "isMultipleSelectionAllowed": false,
+    "isResourceCategory": false,
+    "isActive": false,
+    "isAdminMetadataPropertyPageAllowed": false
+  }
+]
