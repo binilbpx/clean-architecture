@@ -18,8 +18,7 @@ namespace CleanArchitecture.API.StartUp
 
                 return Results.Ok(filteredSchools);
             })
-            .AllowAnonymous()
-            .RequireCors("CorsPolicy");
+            .AllowAnonymous();
 
             app.MapGet("tenants", async (IUnitOfWork unitOfWork) =>
             {
