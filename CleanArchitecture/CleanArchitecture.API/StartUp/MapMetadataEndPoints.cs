@@ -21,13 +21,14 @@ namespace CleanArchitecture.API.StartUp
             .AllowAnonymous()
             .RequireCors("CorsPolicy");
 
-            app.MapGet("metadata/{id}", async (long id, IUnitOfWork unitOfWork) =>
+            app.MapGet("metadatas/{id}", async (long id, IUnitOfWork unitOfWork) =>
             {
                 var metadata = await unitOfWork.Metadatas.GetByIdAsync(id);
 
                 return Results.Ok(metadata);
             })
-            .AllowAnonymous();
+            .AllowAnonymous()
+            .RequireCors("CorsPolicy");
 
             app.MapGet("/metadatas/filter", async (string? name, IUnitOfWork unitOfWork) =>
             {
@@ -40,7 +41,8 @@ namespace CleanArchitecture.API.StartUp
 
                 return Results.Ok(metadataList.ToList());
             })
-            .AllowAnonymous();
+            .AllowAnonymous()
+            .RequireCors("CorsPolicy");
 
             return app;
         }
