@@ -28,7 +28,10 @@ namespace CleanArchitecture.Infrastructure.Repository
         public TenantRepository(IConfiguration configuration)
         {
             var json = System.IO.File.ReadAllText("tenants.json");
-            GlobalData.Tenants = JsonSerializer.Deserialize<List<Tenant>>(json);
+            if (!GlobalData.Tenants.Any())
+            {
+                GlobalData.Tenants = JsonSerializer.Deserialize<List<Tenant>>(json);
+            }            
         }
 
         #endregion
