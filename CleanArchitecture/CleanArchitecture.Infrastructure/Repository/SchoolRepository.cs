@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Application.Interfaces;
+﻿using CleanArchitecture.API.Models;
+using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Core.Entites;
 using CleanArchitecture.Sql.Queries;
 using Dapper;
@@ -16,18 +17,15 @@ namespace CleanArchitecture.Infrastructure.Repository
 {
     public class SchoolRepository : ISchoolRepository
     {
-        #region "private"
-
-        private List<School> schools;
-
-        #endregion
-
         #region "constructor"
 
         public SchoolRepository(IConfiguration configuration)
         {
             var json = System.IO.File.ReadAllText("schools.json");
-            schools = JsonSerializer.Deserialize<List<School>>(json);
+            if (!GlobalData.Tenants.Any())
+            {
+                GlobalData.Schools = JsonSerializer.Deserialize<List<School>>(json);
+            }
         }
 
         #endregion
@@ -36,24 +34,24 @@ namespace CleanArchitecture.Infrastructure.Repository
 
         public async Task<IReadOnlyList<School>> GetAllAsync()
         {
-            return schools.ToList();
+            return GlobalData.Schools.ToList();
         }
 
         public async Task<School> GetByIdAsync(long id)
         {
-            return schools.Where(c => c.id == id).FirstOrDefault();
+            return GlobalData.Schools.Where(c => c.id == id).FirstOrDefault();
         }
 
         public async Task<string> AddAsync(School entity)
         {
-            schools.Add(entity);
+            GlobalData.Schools.Add(entity);
 
             return entity.name;
         }
 
         public async Task<string> UpdateAsync(School entity)
         {
-            var school = schools.Where(c => c.id == entity.id).FirstOrDefault();
+            var school = GlobalData.Schools.Where(c => c.id == entity.id).FirstOrDefault();
 
             school.name = entity.name;
 
