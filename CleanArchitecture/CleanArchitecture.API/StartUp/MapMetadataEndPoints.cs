@@ -30,6 +30,25 @@ namespace CleanArchitecture.API.StartUp
             .AllowAnonymous()
             .RequireCors("CorsPolicy");
 
+            app.MapPut("metadatas/{id}", async (long id, Metadata metaData, IUnitOfWork unitOfWork) =>
+            {
+                var updated_id = await unitOfWork.Metadatas.UpdateAsync(metaData);
+
+                return Results.Ok(metaData);
+            })
+            .AllowAnonymous();
+
+            app.MapPost("metadatas", async (Metadata metaData, IUnitOfWork unitOfWork) =>
+            {
+                var metaDatas = await unitOfWork.Metadatas.GetAllAsync();
+                metaData.id = metaDatas.Max(c => c.id) + 1;
+
+                var updated_id = await unitOfWork.Metadatas.AddAsync(metaData);
+
+                return Results.Ok(metaData);
+            })
+            .AllowAnonymous();
+
             app.MapGet("/metadatas/filter", async (string? name, IUnitOfWork unitOfWork) =>
             {
                 var metadatas = await unitOfWork.Metadatas.GetAllAsync();

@@ -20,16 +20,6 @@ namespace CleanArchitecture.API.StartUp
             })
             .AllowAnonymous();
 
-            //app.MapGet("tenants", async (IUnitOfWork unitOfWork) =>
-            //{
-            //    var schools = await unitOfWork.Schools.GetAllAsync();
-
-            //    var tenants = schools.Select(c => c.tenant).Distinct();
-
-            //    return Results.Ok(tenants);
-            //})
-            //.RequireCors("CorsPolicy");
-
             app.MapGet("schools/{id}", async (long id, IUnitOfWork unitOfWork) =>
             {
                 var school = await unitOfWork.Schools.GetByIdAsync(id);
@@ -37,6 +27,26 @@ namespace CleanArchitecture.API.StartUp
                 return Results.Ok(school);
             })
             .AllowAnonymous();
+
+            app.MapPost("schools", async (School school, IUnitOfWork unitOfWork) =>
+            {
+                var schools = await unitOfWork.Schools.GetAllAsync();
+                school.id = schools.Max(c => c.id) + 1;
+
+                var updated_id = await unitOfWork.Schools.AddAsync(school);
+
+                return Results.Ok(school);
+            })
+            .AllowAnonymous();
+
+            app.MapPut("schools/{id}", async (long id, School school, IUnitOfWork unitOfWork) =>
+            {
+                var updated_id = await unitOfWork.Schools.UpdateAsync(school);
+
+                return Results.Ok(school);
+            })
+            .AllowAnonymous();
+
 
             app.MapGet("/schools/filter", async (string? name, IUnitOfWork unitOfWork) =>
             {

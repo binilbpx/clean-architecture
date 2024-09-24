@@ -28,6 +28,25 @@ namespace CleanArchitecture.API.StartUp
             })
             .AllowAnonymous();
 
+            app.MapPut("tenant/{id}", async (long id, Tenant tenant, IUnitOfWork unitOfWork) =>
+            {
+                var updated_id = await unitOfWork.Tenants.UpdateAsync(tenant);
+
+                return Results.Ok(tenant);
+            })
+            .AllowAnonymous();
+
+            app.MapPost("tenant", async (long id, Tenant tenant, IUnitOfWork unitOfWork) =>
+            {
+                var tenants = await unitOfWork.Tenants.GetAllAsync();
+                tenant.id = tenants.Max(c => c.id) + 1;
+
+                var updated_id = await unitOfWork.Tenants.AddAsync(tenant);
+
+                return Results.Ok(tenant);
+            })
+            .AllowAnonymous();
+
             app.MapGet("/tenants/filter", async (string? name, IUnitOfWork unitOfWork) =>
             {
                 var tenantsList = await unitOfWork.Tenants.GetAllAsync();

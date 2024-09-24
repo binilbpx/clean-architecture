@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Application.Interfaces;
+﻿using CleanArchitecture.API.Models;
+using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Core.Entites;
 using CleanArchitecture.Sql.Queries;
 using Dapper;
@@ -16,18 +17,15 @@ namespace CleanArchitecture.Infrastructure.Repository
 {
     public class MetadataRepository : IMetadataRepository
     {
-        #region "private"
-
-        private List<Metadata> metadatas;
-
-        #endregion
-
         #region "constructor"
 
         public MetadataRepository(IConfiguration configuration)
         {
             var json = System.IO.File.ReadAllText("metadatas.json");
-            metadatas = JsonSerializer.Deserialize<List<Metadata>>(json);
+            if (!GlobalData.Metadatas.Any())
+            {
+                GlobalData.Metadatas = JsonSerializer.Deserialize<List<Metadata>>(json);
+            }
         }
 
         #endregion
@@ -36,26 +34,26 @@ namespace CleanArchitecture.Infrastructure.Repository
 
         public async Task<IReadOnlyList<Metadata>> GetAllAsync()
         {
-            return metadatas.ToList();
+            return GlobalData.Metadatas.ToList();
         }
 
         public async Task<Metadata> GetByIdAsync(long id)
         {
-            return metadatas.Where(c => c.id == id).FirstOrDefault();
+            return GlobalData.Metadatas.Where(c => c.id == id).FirstOrDefault();
         }
 
         public async Task<string> AddAsync(Metadata entity)
         {
-            metadatas.Add(entity);
+            GlobalData.Metadatas.Add(entity);
 
             return entity.name;
         }
 
         public async Task<string> UpdateAsync(Metadata entity)
         {
-            var school = metadatas.Where(c => c.id == entity.id).FirstOrDefault();
+            var metaData = GlobalData.Metadatas.Where(c => c.id == entity.id).FirstOrDefault();
 
-            school.name = entity.name;
+            metaData.name = entity.name;
 
             return entity.name;
         }
