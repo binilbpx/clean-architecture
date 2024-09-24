@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Application.Interfaces;
+﻿using CleanArchitecture.API.Models;
+using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Core.Entites;
 using CleanArchitecture.Sql.Queries;
 using Dapper;
@@ -27,7 +28,7 @@ namespace CleanArchitecture.Infrastructure.Repository
         public TenantRepository(IConfiguration configuration)
         {
             var json = System.IO.File.ReadAllText("tenants.json");
-            tenants = JsonSerializer.Deserialize<List<Tenant>>(json);
+            GlobalData.Tenants = JsonSerializer.Deserialize<List<Tenant>>(json);
         }
 
         #endregion
@@ -36,26 +37,26 @@ namespace CleanArchitecture.Infrastructure.Repository
 
         public async Task<IReadOnlyList<Tenant>> GetAllAsync()
         {
-            return tenants.ToList();
+            return GlobalData.Tenants.ToList();
         }
 
         public async Task<Tenant> GetByIdAsync(long id)
         {
-            return tenants.Where(c => c.id == id).FirstOrDefault();
+            return GlobalData.Tenants.Where(c => c.id == id).FirstOrDefault();
         }
 
         public async Task<string> AddAsync(Tenant entity)
         {
-            tenants.Add(entity);
+            GlobalData.Tenants.Add(entity);
 
             return entity.name;
         }
 
         public async Task<string> UpdateAsync(Tenant entity)
         {
-            var school = tenants.Where(c => c.id == entity.id).FirstOrDefault();
+            var tenant = GlobalData.Tenants.Where(c => c.id == entity.id).FirstOrDefault();
 
-            school.name = entity.name;
+            tenant.name = entity.name;
 
             return entity.name;
         }
