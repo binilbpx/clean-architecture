@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="tenants.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="schools.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -36,6 +36,8 @@ app.MapContactEndpoints();
 
 app.MapSchoolEndpoints();
 
+app.MapTenantEndpoints();
+
 app.MapMetadataEndpoints();
 
 app.UseCors("CorsPolicy");

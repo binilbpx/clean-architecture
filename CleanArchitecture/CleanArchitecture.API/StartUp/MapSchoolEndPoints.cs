@@ -20,15 +20,15 @@ namespace CleanArchitecture.API.StartUp
             })
             .AllowAnonymous();
 
-            app.MapGet("tenants", async (IUnitOfWork unitOfWork) =>
-            {
-                var schools = await unitOfWork.Schools.GetAllAsync();
+            //app.MapGet("tenants", async (IUnitOfWork unitOfWork) =>
+            //{
+            //    var schools = await unitOfWork.Schools.GetAllAsync();
 
-                var tenants = schools.Select(c => c.tenant).Distinct();
+            //    var tenants = schools.Select(c => c.tenant).Distinct();
 
-                return Results.Ok(tenants);
-            })
-            .RequireCors("CorsPolicy");
+            //    return Results.Ok(tenants);
+            //})
+            //.RequireCors("CorsPolicy");
 
             app.MapGet("schools/{id}", async (long id, IUnitOfWork unitOfWork) =>
             {

@@ -5,5 +5,6 @@
         IContactRepository Contacts { get; }
         ISchoolRepository Schools { get; }
         IMetadataRepository Metadatas { get; }
+        ITenantRepository Tenants { get; }
     }
 }

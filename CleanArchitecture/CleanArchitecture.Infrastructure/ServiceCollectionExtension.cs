@@ -16,6 +16,7 @@ namespace CleanArchitecture.Infrastructure
             services.AddTransient<IContactRepository, ContactRepository>();
             services.AddTransient<ISchoolRepository, SchoolRepository>();
             services.AddTransient<IMetadataRepository, MetadataRepository>();
+            services.AddTransient<ITenantRepository, TenantRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
     }
