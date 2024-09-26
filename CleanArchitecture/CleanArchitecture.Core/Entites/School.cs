@@ -12,8 +12,8 @@ namespace CleanArchitecture.Core.Entites
         public string name { get; set; }
         public bool isActive { get; set; }
         public int tenantId { get; set; }
+        public string tenantName { get; set; }
         public string numberOfActiveClasses { get; set; }
-        public Tenant tenant { get; set; }
         public bool isTextToSpeechEnabled { get; set; }
         public bool isGamificationEnabled { get; set; }
         public bool isAvatarShopEnabled { get; set; }

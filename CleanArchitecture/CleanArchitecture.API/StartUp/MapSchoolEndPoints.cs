@@ -47,7 +47,6 @@ namespace CleanArchitecture.API.StartUp
             })
             .AllowAnonymous();
 
-
             app.MapGet("/schools/filter", async (string? name, IUnitOfWork unitOfWork) =>
             {
                 var schoolsList = await unitOfWork.Schools.GetAllAsync();

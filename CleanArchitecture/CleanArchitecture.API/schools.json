@@ -6,12 +6,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": true,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 1,
-			"name": "EduHint",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -21,6 +15,7 @@
 		"name": "Standaard Entree School 1",
 		"isActive": true,
 		"tenantId": 1,
+		"tenantName": "EduHint",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -30,12 +25,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 2,
-			"name": "Pelckmans Uitgeverij",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -45,6 +34,7 @@
 		"name": "Standaard Pelckmans school",
 		"isActive": true,
 		"tenantId": 2,
+		"tenantName": "Pelckmans Uitgeverij",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -54,12 +44,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 4,
-			"name": "Intertaal",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -69,6 +53,7 @@
 		"name": "Testschool TD Intertaal",
 		"isActive": true,
 		"tenantId": 4,
+		"tenantName": "Intertaal",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -78,12 +63,6 @@
 		"isActivationAllowed": true,
 		"isKennisnetAccessByLoginAllowed": true,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 1,
-			"name": "EduHint",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "1&nbsp;klas",
 		"isTeacherEnvironmentAllowed": true,
@@ -93,6 +72,7 @@
 		"name": "DemoSchool",
 		"isActive": true,
 		"tenantId": 1,
+		"tenantName": "EduHint",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -102,12 +82,6 @@
 		"isActivationAllowed": true,
 		"isKennisnetAccessByLoginAllowed": true,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 1,
-			"name": "EduHint",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "9&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -117,6 +91,7 @@
 		"name": "EduHint School",
 		"isActive": true,
 		"tenantId": 1,
+		"tenantName": "EduHint",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -128,12 +103,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 3,
-			"name": "VBeducatief",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -144,6 +113,7 @@
 		"isActive": true,
 		"bdlSchoolId": "300",
 		"tenantId": 3,
+		"tenantName": "VBeducatief",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -154,12 +124,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 2,
-			"name": "Pelckmans Uitgeverij",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -169,6 +133,7 @@
 		"name": "Pelckmans",
 		"isActive": true,
 		"tenantId": 2,
+		"tenantName": "Pelckmans Uitgeverij",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -178,12 +143,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 1,
-			"name": "EduHint",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "3&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -193,6 +152,7 @@
 		"name": "Test school",
 		"isActive": true,
 		"tenantId": 1,
+		"tenantName": "EduHint",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -202,12 +162,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 3,
-			"name": "VBeducatief",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -217,6 +171,7 @@
 		"name": "Testschool PG VBE",
 		"isActive": true,
 		"tenantId": 3,
+		"tenantName": "VBeducatief",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -227,12 +182,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 9,
-			"name": "Seneca Burgerschap",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -242,6 +191,7 @@
 		"name": "Seneca Testschool",
 		"isActive": true,
 		"tenantId": 9,
+		"tenantName": "Seneca Burgerschap",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -251,12 +201,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 1,
-			"name": "EduHint",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "2&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -266,6 +210,7 @@
 		"name": "PG Testschool",
 		"isActive": true,
 		"tenantId": 1,
+		"tenantName": "EduHint",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -275,12 +220,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 1,
-			"name": "EduHint",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "1&nbsp;klas",
 		"isTeacherEnvironmentAllowed": true,
@@ -290,6 +229,7 @@
 		"name": "Testschool Lars",
 		"isActive": true,
 		"tenantId": 1,
+		"tenantName": "EduHint",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -299,12 +239,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 17,
-			"name": "Studio VO",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "1&nbsp;klas",
 		"isTeacherEnvironmentAllowed": true,
@@ -314,6 +248,7 @@
 		"name": "Studio VO Toegang",
 		"isActive": true,
 		"tenantId": 17,
+		"tenantName": "Studio VO",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -324,12 +259,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 2,
-			"name": "Pelckmans Uitgeverij",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -339,6 +268,7 @@
 		"name": "Testschool",
 		"isActive": true,
 		"tenantId": 2,
+		"tenantName": "Pelckmans Uitgeverij",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -348,12 +278,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 3,
-			"name": "VBeducatief",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -363,6 +287,7 @@
 		"name": "Schooltsie zonder methode",
 		"isActive": true,
 		"tenantId": 3,
+		"tenantName": "VBeducatief",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -372,12 +297,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 1,
-			"name": "EduHint",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -387,6 +306,7 @@
 		"name": "Testschool JR",
 		"isActive": true,
 		"tenantId": 1,
+		"tenantName": "EduHint",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -397,12 +317,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 4,
-			"name": "Intertaal",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -412,6 +326,7 @@
 		"name": "Intertaal School",
 		"isActive": true,
 		"tenantId": 4,
+		"tenantName": "Intertaal",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -421,12 +336,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 3,
-			"name": "VBeducatief",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -436,6 +345,7 @@
 		"name": "VBeducatief toegangsschool",
 		"isActive": true,
 		"tenantId": 3,
+		"tenantName": "VBeducatief",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -447,12 +357,6 @@
 		"isActivationAllowed": false,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 1,
-			"name": "EduHint",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -463,6 +367,7 @@
 		"isActive": true,
 		"bdlSchoolId": "wdesfg",
 		"tenantId": 1,
+		"tenantName": "EduHint",
 		"isAdminSchoolPageAllowed": true
 	},
 	{
@@ -472,12 +377,6 @@
 		"isActivationAllowed": true,
 		"isKennisnetAccessByLoginAllowed": false,
 		"isKennisnetRegistrationAllowed": false,
-		"tenant": {
-			"id": 1,
-			"name": "EduHint",
-			"isActive": true,
-			"isAdminPageAllowed": true
-		},
 		"isEditAllowed": false,
 		"numberOfActiveClasses": "0&nbsp;klassen",
 		"isTeacherEnvironmentAllowed": true,
@@ -487,6 +386,7 @@
 		"name": "Testschool Thomas",
 		"isActive": true,
 		"tenantId": 1,
+		"tenantName": "EduHint",
 		"isAdminSchoolPageAllowed": true
 	}
 ]
