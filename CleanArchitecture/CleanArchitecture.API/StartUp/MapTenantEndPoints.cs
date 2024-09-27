@@ -36,7 +36,7 @@ namespace CleanArchitecture.API.StartUp
             })
             .AllowAnonymous();
 
-            app.MapPost("tenant", async (long id, Tenant tenant, IUnitOfWork unitOfWork) =>
+            app.MapPost("tenant", async (Tenant tenant, IUnitOfWork unitOfWork) =>
             {
                 var tenants = await unitOfWork.Tenants.GetAllAsync();
                 tenant.id = tenants.Max(c => c.id) + 1;
