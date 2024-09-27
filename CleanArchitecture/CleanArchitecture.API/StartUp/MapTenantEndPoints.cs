@@ -28,7 +28,7 @@ namespace CleanArchitecture.API.StartUp
             })
             .AllowAnonymous();
 
-            app.MapPut("tenant/{id}", async (long id, Tenant tenant, IUnitOfWork unitOfWork) =>
+            app.MapPut("tenants/{id}", async (long id, Tenant tenant, IUnitOfWork unitOfWork) =>
             {
                 var updated_id = await unitOfWork.Tenants.UpdateAsync(tenant);
 
@@ -36,7 +36,15 @@ namespace CleanArchitecture.API.StartUp
             })
             .AllowAnonymous();
 
-            app.MapPost("tenant", async (long id, Tenant tenant, IUnitOfWork unitOfWork) =>
+            app.MapDelete("tenants/{id}", async (long id, IUnitOfWork unitOfWork) =>
+            {
+                await unitOfWork.Tenants.DeleteAsync(id);
+
+                return Results.Ok();
+            })
+            .AllowAnonymous();
+
+            app.MapPost("tenants", async (Tenant tenant, IUnitOfWork unitOfWork) =>
             {
                 var tenants = await unitOfWork.Tenants.GetAllAsync();
                 tenant.id = tenants.Max(c => c.id) + 1;

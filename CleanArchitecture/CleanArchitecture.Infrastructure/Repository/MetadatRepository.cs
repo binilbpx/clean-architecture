@@ -58,9 +58,9 @@ namespace CleanArchitecture.Infrastructure.Repository
             return entity.name;
         }
 
-        public async Task<string> DeleteAsync(long id)
+        public async Task DeleteAsync(long id)
         {
-            return null;
+            GlobalData.Metadatas.RemoveAll(c => c.id == id);
         }
 
         #endregion

@@ -82,6 +82,11 @@ namespace CleanArchitecture.Infrastructure.Repository
             }
         }
 
+        Task IRepository<Contact>.DeleteAsync(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

@@ -47,6 +47,14 @@ namespace CleanArchitecture.API.StartUp
             })
             .AllowAnonymous();
 
+            app.MapDelete("schools/{id}", async (long id, IUnitOfWork unitOfWork) =>
+            {
+                await unitOfWork.Schools.DeleteAsync(id);
+
+                return Results.Ok();
+            })
+            .AllowAnonymous();
+
             app.MapGet("/schools/filter", async (string? name, IUnitOfWork unitOfWork) =>
             {
                 var schoolsList = await unitOfWork.Schools.GetAllAsync();
