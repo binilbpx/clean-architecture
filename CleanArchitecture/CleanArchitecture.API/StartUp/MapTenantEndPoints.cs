@@ -36,7 +36,16 @@ namespace CleanArchitecture.API.StartUp
             })
             .AllowAnonymous();
 
-            app.MapPost("tenant", async (Tenant tenant, IUnitOfWork unitOfWork) =>
+            app.MapPatch("tenants/{id}", async (long id, Tenant tenant, IUnitOfWork unitOfWork) =>
+            {
+                var updated_id = await unitOfWork.Tenants.UpdateAsync(tenant);
+
+                return Results.Ok(tenant);
+            })
+            .AllowAnonymous();
+
+
+            app.MapPost("tenants", async (Tenant tenant, IUnitOfWork unitOfWork) =>
             {
                 var tenants = await unitOfWork.Tenants.GetAllAsync();
                 tenant.id = tenants.Max(c => c.id) + 1;
@@ -65,13 +74,15 @@ namespace CleanArchitecture.API.StartUp
 
         public static IEnumerable<Tenant> ApplyFilters(HttpContext context, IReadOnlyList<Tenant> tenants)
         {
-            var rangeString = context.Request.Query["range"].ToString();
+            var startString = context.Request.Query["_start"].ToString();
+            var endString = context.Request.Query["_end"].ToString();
+            var sortString = context.Request.Query["_sort"].ToString();
+            var orderString = context.Request.Query["_order"].ToString();
             var filterString = context.Request.Query["filter"].ToString();
 
-            // Parse the range parameter
-            var rangeArray = rangeString.Trim('[', ']').Split(',')
-                                         .Select(int.Parse)
-                                         .ToArray();
+            // Parse the _start and _end parameters
+            int _start = string.IsNullOrEmpty(startString) ? 0 : int.Parse(startString);
+            int _end = string.IsNullOrEmpty(endString) ? tenants.Count : int.Parse(endString);
 
             // Apply filtering based on the filter parameter
             if (!string.IsNullOrEmpty(filterString))
@@ -99,8 +110,9 @@ namespace CleanArchitecture.API.StartUp
                             tenants = tenants.Where(s => s.id == idFilterValue).ToList();
                         }
                     }
-                    // Apply the isActivationAllowed filter
-                    if (filters.TryGetValue("textToSpeechEnabled", out var textToSpeechEnabled) && textToSpeechEnabled.ValueKind == JsonValueKind.True || textToSpeechEnabled.ValueKind == JsonValueKind.False)
+
+                    // Apply the textToSpeechEnabled filter
+                    if (filters.TryGetValue("textToSpeechEnabled", out var textToSpeechEnabled) && (textToSpeechEnabled.ValueKind == JsonValueKind.True || textToSpeechEnabled.ValueKind == JsonValueKind.False))
                     {
                         var isActivationAllowedFilterValue = textToSpeechEnabled.GetBoolean();
                         tenants = tenants.Where(s => s.textToSpeechEnabled == isActivationAllowedFilterValue).ToList();
@@ -108,17 +120,31 @@ namespace CleanArchitecture.API.StartUp
                 }
             }
 
+            // Apply sorting if specified
+            if (!string.IsNullOrEmpty(sortString) && !string.IsNullOrEmpty(orderString))
+            {
+                var isAscending = orderString.Equals("ASC", StringComparison.OrdinalIgnoreCase);
+
+                tenants = sortString switch
+                {
+                    "name" => isAscending ? tenants.OrderBy(t => t.name).ToList() : tenants.OrderByDescending(t => t.name).ToList(),
+                    "id" => isAscending ? tenants.OrderBy(t => t.id).ToList() : tenants.OrderByDescending(t => t.id).ToList(),
+                    _ => tenants
+                };
+            }
+
+            // Apply pagination using _start and _end
+            var tenantsList = tenants.Skip(_start).Take(_end - _start);
+
             // Calculate total count for pagination header
             var totalTenants = tenants.Count();
 
-            // Apply pagination
-            var tenantsList = tenants.Skip(rangeArray[0]).Take(rangeArray[1] - rangeArray[0]);
-
             // Set pagination headers
-            context.Response.Headers.Append("Content-Range", $"tenants {rangeArray[0]}-{rangeArray[1]}/{totalTenants}");
-            context.Response.Headers.Append("Access-Control-Expose-Headers", "Content-Range");
+            context.Response.Headers.Append("X-Total-Count", totalTenants.ToString());
+            context.Response.Headers.Append("Access-Control-Expose-Headers", "X-Total-Count");
 
             return tenantsList;
         }
+
     }
 }

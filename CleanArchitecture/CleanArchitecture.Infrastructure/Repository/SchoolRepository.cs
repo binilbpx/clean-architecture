@@ -53,7 +53,7 @@ namespace CleanArchitecture.Infrastructure.Repository
         {
             var school = GlobalData.Schools.Where(c => c.id == entity.id).FirstOrDefault();
 
-            school.name = entity.name;
+            school.name = entity?.name;
             school.tenantId = entity.tenantId;
             school.tenantName = entity.tenantName;
 
