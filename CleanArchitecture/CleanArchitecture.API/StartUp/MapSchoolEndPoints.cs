@@ -20,6 +20,14 @@ namespace CleanArchitecture.API.StartUp
             })
             .AllowAnonymous();
 
+            app.MapGet("schools/dropdown", async (IUnitOfWork unitOfWork, HttpContext context) =>
+            {
+                var schools = await unitOfWork.Schools.GetAllAsync();
+
+                return Results.Ok(schools.Select(c => new { c.id, c.name }));
+            })
+            .AllowAnonymous();
+
             app.MapGet("schools/{id}", async (long id, IUnitOfWork unitOfWork) =>
             {
                 var school = await unitOfWork.Schools.GetByIdAsync(id);
