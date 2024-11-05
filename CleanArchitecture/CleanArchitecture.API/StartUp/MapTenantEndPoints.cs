@@ -20,6 +20,14 @@ namespace CleanArchitecture.API.StartUp
             })
             .AllowAnonymous();
 
+            app.MapGet("tenants/dropdown", async (IUnitOfWork unitOfWork, HttpContext context) =>
+            {
+                var tenants = await unitOfWork.Tenants.GetAllAsync();
+
+                return Results.Ok(tenants.Select(c => new { c.id, c.name }));
+            })
+            .AllowAnonymous();
+
             app.MapGet("tenants/{id}", async (long id, IUnitOfWork unitOfWork) =>
             {
                 var tenant = await unitOfWork.Tenants.GetByIdAsync(id);

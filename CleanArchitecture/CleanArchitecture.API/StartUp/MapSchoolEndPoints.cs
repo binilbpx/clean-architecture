@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Application.Interfaces;
+﻿using CleanArchitecture.API.Models;
+using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Core.Entites;
 using CleanArchitecture.Infrastructure.Repository;
 using System.Text.Json;
@@ -17,14 +18,29 @@ namespace CleanArchitecture.API.StartUp
                 var filteredSchools = ApplyFilters(context, schools);
 
                 return Results.Ok(filteredSchools);
-            })
-            .AllowAnonymous();
+            });
 
             app.MapGet("schools/dropdown", async (IUnitOfWork unitOfWork, HttpContext context) =>
             {
                 var schools = await unitOfWork.Schools.GetAllAsync();
 
                 return Results.Ok(schools.Select(c => new { c.id, c.name }));
+            })
+            .AllowAnonymous();
+
+            app.MapGet("schools/dropdown/{tenantId}", async (long tenantId, IUnitOfWork unitOfWork, HttpContext context) =>
+            {
+                var schools = await unitOfWork.Schools.GetAllAsync();
+
+                return Results.Ok(schools.Where(c => c.tenantId == tenantId).Select(c => new { c.id, c.name }));
+            })
+            .AllowAnonymous();
+
+            app.MapGet("schools/classes/dropdown/{schoolId}", async (long schoolId, IUnitOfWork unitOfWork, HttpContext context) =>
+            {
+                var classes = GlobalData.GetClasses();
+
+                return Results.Ok(classes.Where(c => c.schoolId == schoolId).Select(c => new { c.id, c.name }));
             })
             .AllowAnonymous();
 
