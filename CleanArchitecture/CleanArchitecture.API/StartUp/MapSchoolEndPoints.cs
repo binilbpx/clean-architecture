@@ -18,7 +18,15 @@ namespace CleanArchitecture.API.StartUp
                 var filteredSchools = ApplyFilters(context, schools);
 
                 return Results.Ok(filteredSchools);
-            });
+            }).AllowAnonymous(); ;
+            app.MapGet("schools-harness", async (IUnitOfWork unitOfWork, HttpContext context) =>
+            {
+                var schools = await unitOfWork.Schools.GetAllAsync();
+
+                var filteredSchools = ApplyFilters(context, schools);
+
+                return Results.Ok(filteredSchools);
+            }).AllowAnonymous(); ;
 
             app.MapGet("schools/dropdown", async (IUnitOfWork unitOfWork, HttpContext context) =>
             {
